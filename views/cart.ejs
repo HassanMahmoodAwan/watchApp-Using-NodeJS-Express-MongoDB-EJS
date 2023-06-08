@@ -1,0 +1,53 @@
+<h1>Product Cart</h1>
+
+<div class="container ">
+    <a href="Products" class="btn btn-success float-right my-5">Add to Cart</a>
+</div>
+
+
+<table class="table table-striped">
+    <thead class="thead thead-dark">
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Company</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Image</th>
+        <th scope="col">Actions</th>
+    </thead>
+    <tbody>
+        <% var totalPrice=0, totalQty=0; %>
+         <% for(let car in cart){ %>
+        <tr>
+            <% totalPrice += Number(cart[car].Price) %>
+            <% totalQty += Number(cart[car].Quantity) %>
+            <td><%= car %></td>
+            <td><%= cart[car].Name  %></td>
+            <td><%= cart[car].Company  %></td>
+            <td><%= cart[car].Category  %></td>
+            <td><%= cart[car].Price  %></td>
+            <td><%= cart[car].Quantity  %></td>
+            <td><%= cart[car].Img  %></td>
+            <td>
+                <a href="removecart/<%= cart[car]._id %>" class="btn btn-danger">remove</a>
+            </td>
+        </tr>
+        <% }; %>
+        <tr>
+            <th>#</th>
+            <th>Grand Total</th>
+            <th></th>
+            <th>Total Price</th>
+            <td><%= totalPrice %></td>
+            <th>Total Quantity</th>
+            <td><%= totalQty %></td>
+            <th></th>
+
+
+        </tr>
+    </tbody>
+
+
+</table>
+

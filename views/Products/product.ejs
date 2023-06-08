@@ -1,0 +1,38 @@
+<a href="ProductAdd" class="float-right btn btn-success mb-5">Add Products</a>
+
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Company</th>
+      <th scope="col">Category</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Img</th>
+      <th scope="col">Actions</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let prod in product){ %>
+    <tr>
+      <th scope="row">1</th>
+      <td><%= product[prod].Name %></td>
+      <td><%= product[prod].Company %></td>
+      <td><%= product[prod].Category %></td>
+      <td><%= product[prod].Price %></td>
+      <td><%= product[prod].Quantity %></td>
+      <td><%= product[prod].Img %></td>
+      <td class="d-flex justify-content-between mx-2 ">
+        <a href="/delete/<%= product[prod]._id %>" class="btn btn-danger">Delete</a>
+        <a href="/edit/<%= product[prod]._id %>" class="btn btn-info">Edit</a>
+        <a href="/cart/<%= product[prod]._id %>" class="btn btn-warning">Add to Cart</a>
+      </td>
+    </tr>
+    <% } %>
+
+  </tbody>
+</table>
+
